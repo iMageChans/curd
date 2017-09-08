@@ -43,8 +43,9 @@ class EventsController < ApplicationController
     flash[:alert] = "event was successfully deleted"
   end
 
-
-
+  def index 
+    @events = Event.page(params[:page]).per(5)
+  end
 
 private
   def event_params
